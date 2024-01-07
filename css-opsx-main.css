@@ -1,0 +1,528 @@
+ body {
+     font-family: 'Archivo Narrow', sans-serif !important;
+     background-color: black;
+     font-size: 12px;
+     margin: 2px;
+     border-radius: 4px !important;
+    /*scrollbar-width: none;*/
+}
+
+
+#audioSection {
+    display: none;
+}
+#secondary-interface {
+    display: none;
+}
+#controlCenterSection {
+    display: none;
+}
+
+ #controlCenterSection {
+    display: flex;
+}
+
+
+
+
+/* bootstrap form-class */
+ .form-check {
+     max-width: 150px;
+    /* Adjust as needed */
+}
+ .form-check-input,.form-check-label {
+     width: auto;
+    /* or any specific width */
+}
+
+
+
+/* responsive menu with dropdowns */
+ @media (min-width: 768px) {
+     .menu-toggle {
+         display: none;
+    }
+     .menu li {
+         float: left;
+    }
+     .menu li a {
+         padding: 0 1em;
+    }
+     .sub-menu {
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         width: 100%;
+         background: white;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+     .dropdown:hover > .sub-menu {
+         display: block;
+    }
+}
+ @media (max-width: 767px) {
+     .menu-toggle {
+         display: block;
+         background: #333;
+         color: white;
+         padding: 0.5em;
+         border: none;
+    }
+     .menu {
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         width: 100%;
+         background: white;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+     .menu li {
+         width: 100%;
+         float: none;
+    }
+     .menu li a {
+         padding: 0.5em 1em;
+    }
+     .menu-toggle:focus ~ .menu, .menu-toggle:focus {
+         display: block;
+    }
+}
+
+
+
+/* TOP INFO BAR / HEADER */
+ #infoBar {
+     font-family: 'Archivo Narrow', sans-serif;
+     font-size: 10px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     gap: 10px;
+     padding: 2px;
+     background-color: #444444;
+     border-bottom: 1px solid gray;
+     margin-bottom: 20px;
+}
+ .info-item {
+     font-family: 'Archivo Narrow', sans-serif;
+     padding: 5px;
+     align-items: flex-start;
+     display: flex;
+     border-radius: 3px;
+     color: white;
+    /* cccccc */
+     font-style: italic;
+     text-transform: uppercase;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     min-width: 100px;
+}
+ .info-item span {
+     font-family: 'Archivo Narrow', sans-serif;
+     margin-left: 4px;
+     color: #f1c232;
+     font-size: 10px;
+     text-align: left;
+     flex-grow: 1;
+}
+ #mainInterface, #secondaryInterface {
+     font-family: 'Roboto', sans-serif;
+     display: flex;
+     flex-wrap: nowrap;
+     justify-content: space-between;
+     background-color: transparent;
+     border: none !important;
+}
+/* SECTION 1 : CONTROL CENTER */
+
+
+.userAlertContainer {
+  border: none;    
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  max-width: 200px;
+  font-family: 'Orbitron';
+  color: limegreen;
+  font-size: 12px;
+  text-align: left;
+  background-color: black;
+  max-width: 800px;
+}
+
+#cc-messaging-dialog {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+#cc-messaging-dialog-title {
+  display: flex;
+  font-size: 1.2rem;
+  color: #4CAF50;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#cc-messaging-dialog-content {
+    display: flex;
+  font-size: 14px;
+  background-color: black;
+}
+
+.cc-dialog-button {
+  display: flex;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #4CAF50;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cc-dialog-button:hover, .cc-dialog-button:focus {
+    display: flex;
+  background-color: #4CAF50;
+  color: black;
+}
+
+.cc-dialog-button.cc-dialog-close {
+    diplay: flex;
+}
+
+.cc-dialog-button.cc-dialog-close:hover, .cc-dialog-button.cc-dialog-close:focus {
+    display: flex;
+  background-color: #4CAF50;
+  color: black;
+}
+
+.serverSideLogsContainer {
+    display: flex;
+    min-width: 300px;
+}
+
+.clientSideLogsContainer {
+    display: flex;
+    max-width: 300px;
+}
+
+
+ .flex-sidebar-panel-cc {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     width: 100%;
+     justify-content: space-between;
+     color: white;
+}
+ .element-cc {
+     flex-grow: 1;
+     flex-shrink: 1;
+     border: 1px solid gray;
+}
+ .element1-cc {
+     flex-basis: 25%;
+     color: white;
+     margin-right: 5px;
+     background-color: #333;
+     font-family: monospace;
+     overflow-y: auto;
+     height: 100%;
+    /* Adjust as necessary */
+}
+ .element2-cc {
+     flex-basis: 50%;
+     flex-grow: 1;
+     width: 100%;
+     color: white;
+     font-family: monospace;
+    /* Style for the user alert container */
+}
+ .element3-cc {
+     flex-basis: 25%;
+     margin-left: 5px;
+     background-color: transparent;
+     color: white;
+     font-family: monospace;
+     overflow-y: auto;
+     height: 100%;
+    /* Adjust as necessary */
+}
+ #serverSideLogs {
+     color:white;
+}
+/* CONFIGURATION SECTION & TABULATOR */
+ #configTabulator {
+     display: flex;
+    /* Set to flex container */
+     flex-direction: column;
+    /* Stack children vertically */
+     height: 100%;
+    /* Take full height of its parent */
+}
+ #configTabulator > div.tabulator-tableholder {
+     flex-grow: 1;
+    /* Grow to take available space */
+    /* Other styles as necessary */
+}
+/* MODULES (PANELS) */
+/* ---------------------------------------------------------- */
+
+
+
+/* SECTION 4 : GOOGLE SHEETS - IFRAME  ! CHECK RIGHT BELOW THIS SECTION FOR INFO ! */
+
+#googleSheetsSection {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.iframeContainer {
+    position: relative;
+    width: calc(100vw - 300px); /* Adjusted */
+    height: calc(100% - 250px); /* Adjusted */
+    margin: 10px auto;
+}
+
+.iframeContainer iframe {
+    width: 100%;
+    height: 100%; /* Adjusted */
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    padding: 5px;
+}
+
+.master-container--iframe {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.master-container--iframe iframe {
+    width: 100%; 
+    height: 100vh; 
+    min-height: 1000px; 
+    max-height: 1500px;
+    aspect-ratio: 16 / 16; 
+}
+
+/* Media Queries for different aspect ratios */
+@media (max-width: 768px) {
+    .master-container--iframe iframe {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* SIDEBAR MODULES - APPEAR ON LEFT OR RIGHT OF IFRAME PANEL */
+
+ .sheetMasterContainer, .rangeMasterContainer, .mediaMasterContainer, .dataMasterContainer {
+     flex: 0 0 auto;
+     align-self: flex-start;
+     min-height: 100%;
+    /* Minimum height as tall as the viewport */
+     width: 300px;
+}
+
+/* ---------------------------------------------------------- */
+
+/* I took this part out of the google sheets section as it a general configuration - the GS section also contains a master-container - shouldn't be in there either I think but I don't want to change stuff right now */
+
+.flex-sidebar-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.master-container {
+    display: flex;
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 0;
+    overflow: auto; /* Scrollable if content overflows */
+}
+
+.element1, .element1--sidebar, .element1--buttonbar, .element1--cs,
+.element3, .element3--sidebar {
+    flex: 0 0 25%;
+    margin: 5px;
+}
+
+.element2 {
+    flex: 1 0 50%;
+    min-width: 50%;
+    margin: auto;
+}
+
+
+/* --------------------------------------------------------------- */
+
+
+
+
+
+
+/* Config Section */
+
+ .tableMasterCheckboxContainer {
+     display: flex;
+     flex-wrap: nowrap;
+     flex-direction: column;
+}
+ #flexPanelConfigSection {
+     display: flex;
+     align-items: flex-start;
+     height: 100%;
+     padding: 5px;
+     border: 1px solid gray;
+}
+ .element1--cs {
+     flex-basis: 15%;
+     max-width: 180px;
+     margin-right: 5px;
+}
+ .element2--cs {
+     flex-basis: 70%;
+     min-width: 50%;
+     flex-grow: 1;
+}
+ .element3--cs {
+     flex-basis: 15%;
+     margin-left: 5px;
+}
+
+ .element1--ai {
+     flex-basis: 5%;
+     max-width: 500px;
+     margin-right: 0;
+
+}
+ .element2--ai {
+     flex-basis: 90%;
+     min-width: 50%;
+     flex-grow: 1;
+}
+ .element3--ai {
+     flex-basis: 5%;
+     margin-left: 0;
+}
+
+
+
+/* HTML Section */
+ #flex-panel-html-section {
+     display: flex;
+     align-items: flex-start;
+     height: 100%;
+     padding: 5px;
+     border: 1px solid gray;
+}
+ .html-interface-container {
+     display: flex;
+     width: 100%;
+     margin-right: 5px;
+     margin-bottom: 10px;
+     flex-direction: row;
+     justify-content: center;
+}
+ .element1--hs {
+     flex-basis: 25%;
+     max-width: 300px;
+     margin-right: 5px;
+     flex-direction: column;
+     margin: 10px;
+     padding: 10px;
+     box-sizing: border-box;
+}
+ .element2--hs {
+     flex-basis: 60%;
+     min-width: 25%;
+     flex-grow: 1;
+}
+ .element3--hs {
+     flex-basis: 80%;
+     flex-grow: 1;
+     width: 100%;
+     margin-left: 5px;
+     height: 100vh;
+}
+ .htmlRender {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     width: 100%;
+    /* Make sure it takes the full width */
+     margin-bottom: 10px;
+     margin: 10px;
+}
+ #editor {
+     max-width: 500px;
+     height: 900px;
+     margin-left: 5px;
+     border: 1px solid gray;
+     margin: 10px;
+}
+ #preview {
+     width: 1500px;
+     
+     background-color: white !important;
+     height: 900px;
+     border-radius: 0;
+     display: flex;
+     margin: 10px;
+}
+ .user-interface.element1--hs {
+    /* background-color: white */
+     border: 1px solid gray;
+     height: 900px;
+     padding-right: 10px;
+     
+}
+
+
+ #editorButtons {
+     flex-flow: row wrap;
+     min-width: 70px;
+}
+ #hotkeysDropdown {
+     width: 300px;
+}
+/* Color Picker */
+ .colorPicker {
+     display: flex;
+     border-radius: 8px;
+     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+ .colorValues {
+     color: white;
+     font-size: 12px;
+     text-align: center;
+}
+ .IroBox {
+     background-color: transparent;
+     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+     box-sizing: content-box;
+     
+}
+ .colorValues span {
+     display: flex;
+     color : black;
+     font-size: 18px;
+     margin: 2px;
+     border: 1px solid #c0c0c0;
+     border-top: none;
+     background-color: #e6e6e6;
+     height: 30px;
+     box-sizing: border-box;
+     justify-content: center;
+}
+ 

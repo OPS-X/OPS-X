@@ -1,0 +1,534 @@
+
+
+/* styling HTML Master */ 
+
+
+.html-master-container {
+  margin: 10px;
+}
+
+.ace-editor-container {
+display: flex;
+border-top: none; 
+} 
+
+#htmlEditor, #cssEditor, #jsEditor {
+height: 200px; 
+width: 33.33%;
+float: left;
+margin: 0;
+padding: 0;
+margin-bottom: 2px;
+border-bottom: 1px solid gray; 
+
+}
+
+#htmlEditor {
+  border-left: 1px solid gray;
+}
+
+#jsEditor {
+  border-right: 1px solid gray;
+
+}
+
+.button-bar {
+
+/* WATCH OUT THIS CLASS HAS INLINE STYLING AS WELL,REMOVE LATER */
+
+display: flex;
+justify-content: center;
+background-color: #2b2b2b; /* Matching Monokai theme background */
+padding: 10px 0;
+border-bottom: 1px solid gray;
+border-left: 1px solid gray;
+border-right: 1px solid gray;
+
+
+}
+
+.button-bar button {
+margin: 0 10px;
+padding: 5px 15px;
+background-color: #1c1c1c; /* Slightly lighter than the bar background */
+color: #fff; /* White text */
+border: 1px solid #444; /* Dark gray border */
+border-radius: 3px;
+cursor: pointer;
+}
+
+.button-bar button:hover {
+background-color: #333; /* Dark gray on hover */
+}
+
+
+#previewPane {
+display: flex;
+flex-grow: 1;
+height: 1000px; /* Sum of the heights of the three editors */
+width: 100%;
+background-color: transparent; /*lightgray;*/ /* Monokai background color */
+font-family: monospace;
+padding: 10px;
+box-sizing: border-box;
+border: none;
+clear: both;
+overflow: auto;
+border: 1px solid gray; 
+border-top: none;
+border-right: 1px solid gray;
+border-bottom: 1px solid gray;
+border-left: 1px solid gray;
+}
+
+iframe { 
+width: 100%; 
+height: 100%; 
+
+}
+
+/* TALK TO AI */
+
+.aiMasterContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b2b2b;
+
+    
+}
+
+/* Styles for inputArea and responseArea */
+.inputArea, .responseArea {
+    flex-basis: calc(50% - 1rem);
+    background-color: #2b2b2b; /* Dark background for terminal effect */
+    height: 300px;
+    margin-bottom: 0;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+/* Existing styles for #userMessage and #aiResponse with terminal-like adjustments */
+#userMessage, #aiResponse {
+    background-color: black; /* Explicitly setting the background color */
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    color: limegreen; /* Lime green text for terminal effect */
+    flex-grow: 1;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 10px 10px 0 0;
+    height: fit-content;
+    max-height: 350px;
+    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+
+}
+
+/* Adjusting the scrollbar to fit the terminal theme */
+.inputArea::-webkit-scrollbar, .responseArea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.inputArea::-webkit-scrollbar-thumb, .responseArea::-webkit-scrollbar-thumb {
+    background-color: limegreen;
+    border-radius: 10px;
+}
+
+.inputArea::-webkit-scrollbar-track, .responseArea::-webkit-scrollbar-track {
+    background-color: #2b2b2b;
+}
+
+/* General button styling */
+.inputArea button, .responseArea button {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #1c1c1c; /* Dark background */
+    letter-spacing: 1px; /* Adjust the letter spacing as needed */
+    font-size: 10px;
+    color: gray; /* Bright text color for contrast */
+    border: 1px solid #444; /* Subtle border */
+    border-radius: 3px; /* Slightly rounded corners */
+    padding: 10px 15px; /* Comfortable padding */
+    margin: 10px 5px; /* Spacing between buttons */
+    cursor: pointer; /* Cursor to pointer */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transitions for hover effects */
+}
+
+label[for="userMessage"], label[for="aiResponse"] {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px; /* Adjust the letter spacing as needed */
+    font-size: 10px;
+    font-weight: bold;
+    color: #d9d9d9;
+}
+
+
+/* Hover state styling */
+.inputArea button:hover, .responseArea button:hover {
+    background-color: #333; /* Lighter shade on hover */
+    border-color: #d9d9d9; /* Bright border color on hover */
+    color: limegreen; /* Change text color for better visibility */
+}
+
+/* Active and focus state styling */
+.inputArea button:active, .responseArea button:active,
+.inputArea button:focus, .responseArea button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px limegreen; /* Glow effect for active/focus state */
+    background-color: black;
+}
+
+
+/* toggle streaming button */
+
+.button-bar button.streaming-active, .button-bar button.autosave-active {
+    background-color: #0b5203;
+    color: white;
+    border: 0.5px solid #fff; 
+    border-color: gray;
+    /*font-weight: bold;*/
+}
+
+/* this keyframe is for when the data from the AI has been received, it makes the process button pulsate */
+
+.broadcast-text {
+    color: gray; /* Greyed out */
+}
+
+.broadcast-text.active {
+    color: #FFFFFF; /* Bright white */
+}
+
+@keyframes pulsateText {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.ready-to-process .button-text {
+    color: #FFFFFF; /* Bright white */
+    display: inline-block; /* Required to apply transform */
+    animation: pulsateText 1s infinite ease-in-out;
+}
+
+/* loading animation in aiResponse area when streaming is on */
+
+#loadingAnimation {
+    display: none;
+    height: 300px; /* Same height as response area */
+    background-color: black; /* Black background */
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 10px 10px 0 0;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#loading-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: white; /* White text color */
+    animation: glow 2s infinite ease-in-out;
+    text-align: center; /* Center text alignment */
+    margin: auto; /* Center vertically within flex container */
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan, 0 0 40px cyan;
+    }
+    50% {
+        text-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan, 0 0 80px cyan;
+    }
+}
+
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan, 0 0 40px cyan;
+    }
+    50% {
+        text-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan, 0 0 80px cyan;
+    }
+}
+
+
+
+/* modal dialogs for loading html files */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Higher z-index than other elements */
+    left: 0;
+    top: 0;
+    width: 600px; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.modal-buttons button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #2196F3; /* Blue background */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.modal-buttons button:hover {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #2196F3;
+}
+
+/* sliders AI settings */
+
+
+/* Slider Container */
+
+
+#ai-config-container {
+  display: flex;
+  width: 100vh;
+  border-left: 1px solid gray;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    flex-grow: 1; /* Let the dropdown grow to fill space */
+    flex-shrink: 1;
+    height: 20px; /* Adjust height as needed */
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.dropdown-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.dropdown-label {
+    flex-shrink: 0;
+    margin-right: 10px;
+    white-space: nowrap;
+    min-width: 100px;
+    max-width: 100px; /* Set a fixed width */
+    text-align: left; /* Right-align text */
+}
+
+.slider-container {
+    padding: 10px;
+    padding-right: 20px;
+    padding-top: 45px;
+    background-color: #2b2b2b;
+    color: white;
+    width: 700px;
+    max-width: 700px;
+    border: 1px solid gray;
+    border-top: none;
+    border-right: none;
+    border-left: 1px solid gray;
+}
+
+.slider {
+-webkit-appearance: none;
+flex-shrink: 1;
+flex-grow: 1;
+height: 15px;
+border-radius: 5px;
+background: linear-gradient(90deg, #8C9EFF 0%, #4C4FE0 50%, #8C9EFF 100%);
+outline: none;
+opacity: 0.7;
+transition: opacity .2s;
+}
+
+.slider:hover {
+opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 17px;
+height: 17px;
+border: 3px solid #F5F5F5;
+border-radius: 50%;
+background: #C4C4C4;
+cursor: pointer;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+width: 17px;
+height: 17px;
+border: 3px solid #F5F5F5;
+border-radius: 50%;
+background: #C4C4C4;
+cursor: pointer;
+box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align to the start */
+    margin-bottom: 10px;
+}
+
+.slider-label {
+    flex-shrink: 0;
+    margin-right: 10px;
+    white-space: nowrap;
+    min-width: 100px;
+    max-width: 100px; /* Set a fixed width */
+    text-align: left; /* Right-align text */
+}
+
+.slider-value {
+    flex-shrink: 0;
+    color: gold;
+    margin-left: 10px;
+}
+
+
+/* carroussel styling */
+
+.carousel-container, .slider-container, .team-container{
+    background: linear-gradient(to bottom, 
+                                #2b2b2b 0%, 
+                                #333 50%, 
+                                #0f2027 100%);
+    color: white;
+
+}
+
+.carousel-container {
+    font-family: 'Archivo Narrow', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* This will vertically center the items */
+    width: 600px;
+    height: 700px; /* Adjust height as needed */
+    margin: 0; 
+    color: white;
+    overflow: hidden;
+    border-right: none;
+    border-bottom: 1px solid gray;
+
+}
+
+
+.carousel {
+    display: flex;
+    width: 250px;
+    height: 500px;
+    position: relative;
+    perspective: 1250px;
+}
+.carousel-item {
+    display: flex;
+    letter-spacing: 1px;
+    flex-direction: column;
+    justify-content: space-between; /* Adjust alignment */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    transition: transform 1s, opacity 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    background: #1e293b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    opacity: 0.6;
+}
+
+
+.carousel-item p {
+  font-size: 13px;
+
+}
+.carousel-item.active {
+    opacity: 1;
+
+
+}
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Adjust height as needed */
+    object-fit: contain; /* use "cover" to maintain aspect ratio */
+    border-radius: 10px;
+    margin-top: 5px;
+
+    
+}
+
+.character-info {
+    width: 80%;
+    padding: 2px;
+    text-align: left;
+    background: transparent; /* background: rgba(0, 0, 0, 0.5); */ /* Darker background */ 
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: auto; /* Add scroll if content overflows */
+
+
+}
+
+.character-name {
+    margin: 1px 1px;
+    color: #fff;
+        transform: rotateY(calc(var(--item-index) * 30deg)) translateZ(150px) scale(1.5);
+
+}
+.character-details {
+    color: #ddd;
+}
+
+.selected-item {
+    border: 2px solid limegreen;
+    animation: flashAnimation 1s ease-in-out infinite;
+}
+
+@keyframes flashAnimation {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.team-container {
+  width: 100%;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+}

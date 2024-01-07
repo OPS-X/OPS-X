@@ -1,0 +1,65 @@
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+
+    /* Hide any elements that you do not want to print */
+    .no-print,
+    header,
+    footer,
+    nav,
+    aside,
+    .button-container {
+        display: none !important;
+    }
+
+    /* Make sure the table takes full width and the text is legible */
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #FFFFFF !important;
+    }
+
+    .tabulator {
+        -webkit-print-color-adjust: exact; /* Chrome, Safari */
+        color-adjust: exact; /* Firefox */
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+    }
+
+    /* Ensure the header, cells, and rows keep their styling */
+    .tabulator .tabulator-header,
+    .tabulator .tabulator-cell {
+        background-color: #f0f0f0 !important; /* Maintain background color */
+        color: #000 !important; /* Maintain text color */
+        border: 1px solid #ccc !important; /* Maintain borders */
+    }
+
+    /* Make sure all content in cells is visible */
+    .tabulator .tabulator-cell {
+        white-space: normal !important;
+        height: auto !important;
+    }
+
+    /* Ensure row borders are visible */
+    .tabulator-row {
+        border-bottom: 1px solid #ccc !important;
+    }
+
+    /* If you have zebra striping or hover states, maintain those as well */
+    .tabulator-row:nth-child(even) {
+        background-color: #e0e0e0 !important; /* For zebra striping */
+    }
+
+    /* Handle page breaks effectively */
+    .tabulator-row {
+        page-break-inside: avoid; /* Avoid breaking rows between pages */
+    }
+
+    /* You may want to adjust the size of the table to fit more content on each page */
+    .tabulator-tableHolder, .tabulator {
+        zoom: 0.8; /* Scale the table to 80% of the original size */
+    }
+}
