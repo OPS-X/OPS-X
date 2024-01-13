@@ -1,0 +1,33 @@
+{
+  "name_config": "Flexgrow",
+  "primary_color": "#023d51",
+  "secondary_color": "#34c1bf",
+  "base_color": "#fbafa7",
+  "custom_color": "#ffff",
+  "title": "base_color",
+  "subheadings": "base_color",
+  "font_color": "base_color",
+  "links": "custom_color"
+},
+{
+  "name_config": "Pretecho Current",
+  "primary_color": "#a1d2ce",
+  "secondary_color": "#f4e1d2",
+  "base_color": "#fbafa7",
+  "custom_color": "#ffff",
+  "title": "primary_color",
+  "subheadings": "secondary_color",
+  "font_color": "base_color",
+  "links": "custom_color"
+},
+{
+  "name_config": "Pretecho New",
+  "primary_color": "#f4e1d2",
+  "secondary_color": "#a1d2ce",
+  "base_color": "#fbafa7",
+  "custom_color": "#ffff",
+  "title": "primary_color",
+  "subheadings": "secondary_color",
+  "font_color": "base_color",
+  "links": "custom_color"
+}
