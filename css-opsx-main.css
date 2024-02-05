@@ -95,9 +95,11 @@
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     #info-bar-section {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center; /* Center align items in column layout */
+        flex-wrap: no-wrap;
     }
+ 
 
     #ib-info-item {
         width: 100%; 
